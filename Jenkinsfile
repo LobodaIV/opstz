@@ -9,7 +9,7 @@ node {
 	        sh 'eval $(docker-machine env aws-nginx-instance --shell bash); docker run -d --name nginx-lua -p 80:80 libroli1988/opstz'
 	    } else {
 		docRes = sh(returnStatus: true, script: 'eval $(docker-machine env aws-nginx-instance --shell bash); docker stop nginx-lua;docker rm nginx-lua')
-	        if(!docRes) {
+	        if(docRes) {
 	            sh 'eval $(docker-machine env aws-nginx-instance --shell bash); docker run -d --name nginx-lua -p 80:80 libroli1988/opstz'
 	        }
 	    }
