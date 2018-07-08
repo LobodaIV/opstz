@@ -11,6 +11,9 @@ node {
 	        sh 'eval $(docker-machine env aws-nginx-instance --shell bash); docker run -d -p 80:80 libroli1988/opstz'
 	    }
 	}
+	stage('Test') {
+	    echo "Test stage" 
+	}
     } finally {
          stage 'Clean up'
          sh 'echo "clean up"'
